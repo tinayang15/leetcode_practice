@@ -359,3 +359,60 @@ print(-1 * maxHeap[0])
 
 while len(maxHeap):
     print(-1 * heapq.heappop(maxHeap))
+
+
+# functions
+def myFunction(n, m):
+    return n * m
+
+
+print(myFunction(3, 4))
+
+
+# nested functions
+def outer(a, b):
+    c = "c"
+
+    def inner():
+        return a+b+c
+    return inner()
+
+
+print(outer("a", "b"))
+
+# can modify objects but can not reassign unless using nonlocal keyword
+
+
+def double(arr, val):
+    def helper():
+        # modifying array works
+        for i, n in enumerate(arr):
+            arr[i] *= 2
+        # will only modify val in the helper scope
+        # val *= 2
+        # this will modify val outside helper scope
+        nonlocal val
+        val *= 2
+    helper()
+    print(arr, val)
+
+
+nums = [1, 2]
+val = 3
+double(nums, val)
+
+
+# class
+class MyClass:
+    # Constructor
+    def __init__(self, nums):
+        # create member vari
+        self.nums = nums
+        self.size = len(nums)
+
+    # self keyword required as param
+    def getLength(self):
+        return self.size
+
+    def getDoubleLength(self):
+        return 2*self.getLength()
