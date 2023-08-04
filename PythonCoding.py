@@ -81,3 +81,56 @@ print(10 % 3)  # solution is 1
 print(-10 % 3)  # solution is 2, needs to be negative number
 # work around is below
 print(math.fmod(-10, 3))  # solution is -1 = correct
+
+
+# More math helpers
+print(math.floor(3/2))  # round down
+print(math.ceil(3/2))  # round up
+print(math.sqrt(2))
+print(math.pow(2, 3))  # first number to the power of second number
+
+
+# max/min int
+float("inf")  # max
+float("-inf")  # min
+
+# python numbers are infinite so they never overflow
+print(math.pow(2, 200))
+
+# but still less than infinity
+print(math.pow(2, 200) < float("inf"))
+
+
+# Arrays (called lists in python)
+arr = [1, 2, 3]
+print(arr)
+
+# can be used as a stack
+arr.append(4)
+arr.append(5)
+print(arr)
+
+arr.pop()
+print(arr)
+
+arr.insert(1, 7)  # at index 1, insert 7 O(n) time
+print(arr)
+
+# not O(n) to index array - reassign value
+arr[0] = 0
+arr[3] = 0
+print(arr)
+
+
+# intialize arr of size n with default value of 1
+n = 5
+arr = [1] * n
+print("array", arr)
+print("length", len(arr))
+
+
+# careful: -1 is not out of bounds, it's the last value
+arr = [1, 2, 3]
+print(arr[-1])
+# indexing -2 is the second to last value, etc
+print(arr[-2])
