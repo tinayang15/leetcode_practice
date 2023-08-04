@@ -1,4 +1,6 @@
 # variables are dynamicly typed
+import heapq
+from collections import deque
 import math
 n = 0
 print('n=', n)
@@ -234,3 +236,126 @@ print(ord("b"))
 # combine a list of strings (with an empty string delimitor)
 strings = ["ab", "cd", "ef"]
 print("".join(strings))
+
+
+# queues (double ended queue)
+queue = deque()
+queue.append(1)
+queue.append(2)
+print(queue)
+
+queue.popleft()
+print(queue)
+
+queue.appendleft(1)
+print(queue)
+
+queue.pop()
+print(queue)
+
+
+# hash set
+mySet = set()
+mySet.add(1)
+mySet.add(2)
+print(mySet)
+print(len(mySet))
+# can't be double, can only have 1 unique
+print(1 in mySet)
+print(2 in mySet)
+
+mySet.remove(2)
+print(2 in mySet)
+
+
+# list to set
+print(set([1, 2, 3]))
+
+# set comprehension
+mySet = {i for i in range(5)}
+print(mySet)
+
+
+# hashmap aka dict
+myMap = {}
+myMap["alice"] = 88
+myMap["bob"] = 7
+print(myMap)
+print(len(myMap))
+print(myMap.values())
+
+myMap["alice"] = 80
+print(myMap["alice"])
+
+print("alice" in myMap)
+
+myMap.pop("alice")
+print("alice" in myMap)
+
+myMap = {"alice": 90, "bob": 70}
+print(myMap)
+
+
+# dict comprehension
+myMap = {i: 2*i for i in range(3)}
+print(myMap)
+
+# looping through maps
+myMap = {"alice": 90, "bob": 70}
+for key in myMap:
+    print(key, myMap[key])
+
+for value in myMap.values():
+    print(value)
+
+for key, value in myMap.items():
+    print(key, value)
+
+
+# tuples are like arrays but immutable
+tup = (1, 2, 3)
+print(tup)
+print(tup[0])
+print(tup[-1])
+
+# can't modify
+# tup[0] = 0
+
+# can be used as key for hashmap/set
+myMap = {(1, 2): 3}
+print(myMap[(1, 2)])
+
+mySet = set()
+mySet.add((1, 2))
+print((1, 2) in mySet)
+
+
+# lists can't be keys in hashmap
+# myMap[[3,4]] = 5 #can't happen
+
+# heaps
+
+# under hood are arrays
+minHeap = []
+heapq.heappush(minHeap, 3)
+heapq.heappush(minHeap, 2)
+heapq.heappush(minHeap, 4)
+
+# Min is always at index 0
+print(minHeap[0])
+
+while len(minHeap):
+    print("start", heapq.heappop(minHeap))
+
+# no max heaps by default, work around is to use min heap and mulitply by -1 when push and pop
+
+maxHeap = []
+heapq.heappush(maxHeap, -3)
+heapq.heappush(maxHeap, -2)
+heapq.heappush(maxHeap, -4)
+
+# max is awlays at index 0
+print(-1 * maxHeap[0])
+
+while len(maxHeap):
+    print(-1 * heapq.heappop(maxHeap))
