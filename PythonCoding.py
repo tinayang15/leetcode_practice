@@ -134,3 +134,103 @@ arr = [1, 2, 3]
 print(arr[-1])
 # indexing -2 is the second to last value, etc
 print(arr[-2])
+
+
+new_arr = [1, 2, 3]
+
+for i in range(0, len(new_arr)):
+    print("here", i)
+
+
+# sublists (aka slicing)
+arr = [1, 2, 3, 4]
+# prints index 1 - 3, but not including index 3
+print(arr[1:3])
+
+# similar to  for-loop ranges, last index is non-inclusive
+print(arr[0:4])
+
+
+# unpacking, make sure both sides matches
+a, b, c, = [1, 2, 3]
+print(a, b, c)
+
+# loop through arrays
+nums = [1, 2, 3]
+# using index
+for i in range(len(nums)):
+    print("here", nums[i])
+
+# without index
+for n in nums:
+    print(n)
+
+# with index and value
+for i, n in enumerate(nums):
+    print(i, n)
+
+# loop through multiple arrays simultaneously without unpacking
+nums1 = [1, 3, 5]
+nums2 = [2, 4, 6]
+# zip takes both arrays and combine them into array of pairs and unpacks these values
+for n1, n2 in zip(nums1, nums2):
+    print(n1, n2)
+
+
+# reverse
+nums = [1, 2, 3]
+nums.reverse()
+print(nums)
+
+# sorting array
+arr = [5, 4, 7, 3, 8]
+arr.sort()
+print(arr)  # sorts ascending
+
+arr.sort(reverse=True)
+print(arr)
+
+
+# sort string
+arr = ["bob", "alice", "jane", "doe"]
+arr.sort()
+print(arr)  # sorted alphabettically
+
+# costum sort (by length of string)
+arr.sort(key=lambda x: len(x))
+print(arr)
+# function without a name - lambda, take every value of array and call it x and return the length of x - key to sort string - sorted in ascending order.
+
+
+# list comprehension - intialize list
+arr = [i for i in range(5)]  # taking i and adding it to the list - shorthand
+print(arr)
+
+arr = [i+i for i in range(5)]  # taking i and adding it to the list - shorthand
+print(arr)
+
+
+# 2-D lists
+arr = [[0]*4 for i in range(4)]
+print(arr)
+
+
+# strings are similar to arrays
+s = 'abc'
+print(s[0:2])
+
+# So this creates a new string
+s += "def"
+print(s)
+
+
+# valid numeric strings can be coverted
+print(int("123")+int("123"))
+
+# in rare cases you you may need the ASCII value of a char
+print(ord("a"))
+print(ord("b"))
+
+# combine a list of strings (with an empty string delimitor)
+strings = ["ab", "cd", "ef"]
+print("".join(strings))
