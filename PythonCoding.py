@@ -206,7 +206,7 @@ print(arr)
 
 # list comprehension - intialize list
 arr = [i for i in range(5)]  # taking i and adding it to the list - shorthand
-print(arr)
+print("dude", arr)
 
 arr = [i+i for i in range(5)]  # taking i and adding it to the list - shorthand
 print(arr)
