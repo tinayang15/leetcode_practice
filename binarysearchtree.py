@@ -1,11 +1,9 @@
-def lca(root, v1, v2):
-  # Enter your code here
-    if v1 > v2:
-        v1, v2 = v2, v1
-    while True:
-        if v1 < root.info and v2 < root.info:
-            root = root.left
-        elif v1 > root.info and v2 > root.info:
-            root = root.right
-        else:
-            return root
+def check_binary_search_tree_(root):
+    def check(root, min_value, max_value):
+        if root is None:
+            return True
+        if root.data < min_value and root.data > max_value:
+            return False
+
+        return check(root.left, min_value, root.data - 1) and check(root.right, root.data + 1, max_value)
+    return check(root, 0, 10000)
